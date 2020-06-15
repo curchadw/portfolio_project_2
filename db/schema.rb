@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_161832) do
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.string "username"
+    t.string "email"
     t.string "password"
   end
 
