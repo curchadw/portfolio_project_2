@@ -1,0 +1,8 @@
+<h2>House of the <%= current_user.name%>!</h2>
+<h3>Your current roster:</h3>
+<ul>
+<% @players.each do |player|%>
+<li><%= player.name%></li>
+<% end %>
+</ul>
+<a href = '/account'><h5>Back</h5></a>

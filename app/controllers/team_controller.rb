@@ -4,15 +4,15 @@ class TeamController < ApplicationController
     end
 
     post '/signup' do
-        # if params[:username] == "" || params[:email] == "" || params[:password] == "" || params[:name]
-        #     redirect to '/signup'
-        # end
+        if params == ""
+            redirect to '/signup'
+        else
             
-        @user = Team.new(:username => params[:username], :email => params[:email], :password => params[:password], :name => params[:name])
-        @user.save
-        session[:user_id] = @user.id
-        redirect to '/'
-        
+          @user = Team.new(:username => params[:username], :email => params[:email], :password => params[:password], :name => params[:name])
+          @user.save
+          session[:user_id] = @user.id
+          redirect to '/'
+        end
     end
 
 
