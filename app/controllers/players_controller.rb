@@ -17,9 +17,19 @@ class PlayersController < ApplicationController
         end
     end
 
-    post '/players' do 
-        @player = Player.create(:name => params[:name],:position => params[:position], :weight => params[:weight], :height => params[:height])
-        redirect "/players"
+    post "/players" do 
+       if params == ""
+         redirect to '/players/new'
+       else
+        @player = Player.create(params)
+        redirect to "/players/#{@player.id}"
+        
+       end
+    end
+
+    get "/players/:id" do
+        @player = Player.find(params[:id])
+        erb :"players/show_player"
     end
 
 

@@ -95,7 +95,7 @@ DEPENDENCIES
   sinatra-activerecord
   sqlite3 (~> 1.3.6)
   thin
-  tux
+  tux (~> 0.3.0)
 
 BUNDLED WITH
    2.1.4

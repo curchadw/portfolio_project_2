@@ -1,4 +1,4 @@
-class TeamController < ApplicationController
+class TeamsController < ApplicationController
     get '/signup' do
         erb :'team/signup'
     end

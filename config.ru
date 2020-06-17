@@ -1,11 +1,9 @@
-require_relative './config/environment'
-
-require_relative 'app/controllers/coach_controller'
-require_relative 'app/controllers/team_controller'
-require_relative 'app/controllers/players_controller'
+require './config/environment'
 
 
-use CoachController
+  
+use Rack::MethodOverride
+use CoachesController
 use PlayersController
-use TeamController
+use TeamsController
 run ApplicationController
