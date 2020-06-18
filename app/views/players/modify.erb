@@ -1,8 +1,7 @@
+<h3>Player Info Adjustment</h3>
 
-
-<h2>Add a member to the team</h2>
-<form action ='/players' method='POST'>
-
+<form action ='/players/<%= @player.id%>' method='POST'>
+<input id="hidden" type="hidden" name="_method" value="patch">
 <label for = 'name'>Name:</label>
 <input type = 'text' name = 'name' id = 'name'><br><br>
 
@@ -15,7 +14,8 @@
 <label for = 'weight'>Weight:</label>
 <input type = 'text' name = 'weight' id = 'weight'><br><br>
 
-<input type = 'submit' value = 'Join The Team'>
+<input type = 'submit' value = 'finish'>
 </form>
+
 
 

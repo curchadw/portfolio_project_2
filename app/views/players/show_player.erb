@@ -1,9 +1,9 @@
-<h2><%= @player.name %></h2>
-<%= @player.position %>
-<%= @player.height%>
-<%= @player.weight%>
+<h4><%= @player.name %></h4>
+<%= @player.position %><br>
+<%= @player.height %><br>
+<%= @player.weight %>
 
 <form method="post" action="/players/<%= @player.id %>">
   <input type="hidden" name="_method" value="delete" />
-  <input type="submit" />
+  <input type="submit" value = 'Delete' />
 </form>
