@@ -1,0 +1,9 @@
+<h2>Here are your players</h2>
+
+<ul>
+<% @user_players.each do |player|%>
+    <li><a href= '/players/<%= player.id %>'><%= player.name %></a></li>
+<% end %>
+</ul>
+
+<a href = '/account'>Back to Profile</a>

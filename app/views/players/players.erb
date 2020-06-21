@@ -1,5 +1,5 @@
 <h2>House of the <%= current_user.name%>!</h2>
-<h3>Your current roster:</h3>
+<h3>Players in the system for all teams</h3>
 <ul>
 <% @players.each.with_index do |player,id|%>
 <li><a href= '/players/<%= player.id %>'><%= player.name%></a></li>

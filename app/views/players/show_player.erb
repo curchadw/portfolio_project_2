@@ -7,4 +7,5 @@
   <input type="hidden" name="_method" value="delete" />
   <input type="submit" value = 'Delete' />
 </form>
-<a href ='/players'>Back To Roster View</a>
+<a href ='/user_players/<%= current_user.username %>'>Show Your Players</a><br>
+<a href ='/players'>Show All Players In System</a>

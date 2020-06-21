@@ -17,7 +17,7 @@ class PlayersController < ApplicationController
         end
     end
 
-    
+
 
     get "/players/:id" do
       if logged_in?
@@ -40,6 +40,8 @@ class PlayersController < ApplicationController
             redirect to '/login'
         end
     end
+
+    
 
     patch '/players/:id' do
         if logged_in?
@@ -73,6 +75,7 @@ class PlayersController < ApplicationController
         else
             @player = current_user.players.build(params)
             if @player.save
+                @player.team_id = current_user.id
                 redirect to "/players/#{@player.id}"
             else  
             redirect to '/players/new'
@@ -95,4 +98,13 @@ class PlayersController < ApplicationController
             redirect to '/login'
         end
     end
+
+    get '/user_players/:username' do
+        if logged_in?
+         @user_players = Player.all.select{|players| players.team_id == current_user.id}
+            erb :'players/user_players'
+        else
+          redirect '/login'
+        end
+      end
 end
