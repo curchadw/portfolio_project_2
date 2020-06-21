@@ -29,19 +29,18 @@ class PlayersController < ApplicationController
     end
 
     get '/players/:id/edit' do  #load edit form
-        if logged_in?
+        #if logged_in?
          @player = Player.find_by_id(params[:id])
-            if @player && @player.user == current_user
+            #if @player && @player.user == current_user
             erb :"players/modify"
-            else 
-            redirect to '/players'
-            end
-        else
-            redirect to '/login'
-        end
+            #redirect to '/players'
+            #end
+        #else
+            #redirect to '/login'
+        #end
     end
 
-    patch '/players/:id/edit' do
+    patch '/players/:id' do
         @player = Player.find_by_id(params[:id])
         @player.name = params[:name]
         @player.position = params[:position]
@@ -65,9 +64,9 @@ class PlayersController < ApplicationController
     delete '/players/:id' do #delete action
       if logged_in?
         @player = Player.find_by_id(params[:id])
-        if @player && @player.user == current_user
+        #if @player && @player.user == current_user
         @player.delete
-        end
+        #end
             redirect to '/players'
         else
             redirect to '/login'
