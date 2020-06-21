@@ -29,44 +29,67 @@ class PlayersController < ApplicationController
     end
 
     get '/players/:id/edit' do  #load edit form
-        #if logged_in?
+        if logged_in?
          @player = Player.find_by_id(params[:id])
-            #if @player && @player.user == current_user
-            erb :"players/modify"
-            #redirect to '/players'
-            #end
-        #else
-            #redirect to '/login'
-        #end
+            if @player && @player.team == current_user
+                erb :"players/modify"
+            else
+                redirect to '/players'
+            end
+        else
+            redirect to '/login'
+        end
     end
 
     patch '/players/:id' do
-        @player = Player.find_by_id(params[:id])
-        @player.name = params[:name]
-        @player.position = params[:position]
-        @player.height = params[:height]
-        @player.weight = params[:weight]
-        @player.save
-        redirect to "/players/#{@player.id}"    
+        if logged_in?
+            if params == ""
+                redirect to "/players/#{params[:id]}/edit"
+            else
+              @player = Player.find_by_id(params[:id])
+                if  @player && @player.team == current_user
+                    @player.name = params[:name]
+                    @player.position = params[:position]
+                    @player.height = params[:height]
+                    @player.weight = params[:weight]
+                    @player.save
+                    redirect to "/players/#{@player.id}"
+                else
+                    redirect to "/players/#{@player.id}/edit"
+                end
+            end
+        else
+            redirect to '/login'
+        end     
+        
+          
         
     end
 
     post "/players" do 
+      if logged_in?
         if params == ""
           redirect to '/players/new'
         else
-         @player = Player.create(params)
-         redirect to "/players/#{@player.id}"
-         
+            @player = current_user.players.build(params)
+            if @player.save
+                redirect to "/players/#{@player.id}"
+            else  
+            redirect to '/players/new'
+            end
+          end
+         else
+            redirect to "/login"
         end
+        
      end
 
-    delete '/players/:id' do #delete action
+    delete '/players/:id' do 
       if logged_in?
         @player = Player.find_by_id(params[:id])
-        #if @player && @player.user == current_user
+        if @player && @player.team == current_user
         @player.delete
-        #end
+        end
             redirect to '/players'
         else
             redirect to '/login'

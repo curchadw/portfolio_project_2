@@ -25,9 +25,9 @@ class TeamsController < ApplicationController
       end
 
       post '/login' do
-        @user = Team.find_by(:username => params[:username], password: params[:password])
-        if @user
-            session[:user_id] = @user.id
+        user = Team.find_by(:username => params[:username])
+        if user && user.authenticate(params[:password])
+          session[:user_id] = user.id
           redirect to "/account"
         else
           redirect to '/login'

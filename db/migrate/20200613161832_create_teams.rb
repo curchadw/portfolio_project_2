@@ -4,7 +4,7 @@ class CreateTeams < ActiveRecord::Migration[5.2]
       team.string :name
       team.string :username
       team.string :email
-      team.string :password
+      team.string :password_digest
     end
   end
 end
