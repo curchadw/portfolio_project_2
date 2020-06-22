@@ -1,4 +1,7 @@
 class PlayersController < ApplicationController
+   
+    
+    
     get '/players' do
      if logged_in?
         @players = Player.all 
@@ -43,7 +46,7 @@ class PlayersController < ApplicationController
 
     
 
-    patch '/players/:id' do
+    patch '/players/:name' do
         if logged_in?
             if params == ""
                 redirect to "/players/#{params[:id]}/edit"
@@ -87,7 +90,7 @@ class PlayersController < ApplicationController
         
      end
 
-    delete '/players/:id' do 
+    delete '/players/:name' do 
       if logged_in?
         @player = Player.find_by_id(params[:id])
         if @player && @player.team == current_user

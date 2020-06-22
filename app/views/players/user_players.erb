@@ -1,4 +1,11 @@
-<h2>Here are your players</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= current_user.name%></title>
+<link rel="stylesheet" type="text/css" href="<%= url('/logon.css') %>">
+</head>
+<body>
+<h2>House of the <%= current_user.name%>!</h2>
 
 <ul>
 <% @user_players.each do |player|%>
@@ -6,4 +13,6 @@
 <% end %>
 </ul>
 
-<a href = '/account'>Back to Profile</a>
+<a href = '/account'>Home</a>
+</body>
+</html>

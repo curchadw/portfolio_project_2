@@ -1,8 +1,17 @@
-<h2>House of the <%= current_user.name%>!</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<title>All Players</title>
+<link rel="stylesheet" type="text/css" href="<%= url('/logon.css') %>">
+</head>
+<body>
+<h2>Current Players In The System</h2>
 <h3>Players in the system for all teams</h3>
 <ul>
 <% @players.each.with_index do |player,id|%>
 <li><a href= '/players/<%= player.id %>'><%= player.name%></a></li>
 <% end %>
 </ul>
-<a href = '/account'><h5>Back</h5></a>
+<a href = '/account'><h5>Home</h5></a>
+</body>
+</html>
