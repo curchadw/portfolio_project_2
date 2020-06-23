@@ -1,22 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Player</title>
+        <link rel="stylesheet" type="text/css" href="<%= url('/logon.css') %>">
+    <head>
+    <body>
+    <h2>Add a member to the team</h2>
+    <form action ='/players' method='POST'>
+    <label for = 'name'>Name:</label>
+    <input type = 'text' name = 'name' id = 'name'><br><br>
 
+    <label for = 'position'>Position:</label>
+    <input type = 'text' name = 'position' id = 'position'><br><br>
 
-<h2>Add a member to the team</h2>
-<form action ='/players' method='POST'>
-<label for = 'name'>Name:</label>
-<input type = 'text' name = 'name' id = 'name'><br><br>
+    <label for = 'height'>Height:</label>
+    <input type = 'text' name = 'height' id = 'height'><br><br>
 
-<label for = 'position'>Position:</label>
-<input type = 'text' name = 'position' id = 'position'><br><br>
+    <label for = 'weight'>Weight:</label>
+    <input type = 'text' name = 'weight' id = 'weight'><br><br>
 
-<label for = 'height'>Height:</label>
-<input type = 'text' name = 'height' id = 'height'><br><br>
-
-<label for = 'weight'>Weight:</label>
-<input type = 'text' name = 'weight' id = 'weight'><br><br>
-
-<input type = 'submit' value = 'Join The Team'>
-</form><br>
-<a href = '/account'>Cancel</a>
-
-
-
+    <input type = 'submit' value = 'Join The Team'>
+    </form><br>
+    <a href = '/account'>Cancel</a>
+    </body>
+</html>

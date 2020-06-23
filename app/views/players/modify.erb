@@ -1,21 +1,32 @@
-<h3>Player Info Adjustment</h3>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Player</title>
+        <link rel="stylesheet" type="text/css" href="<%= url('/logon.css') %>">
+    <head>
+    <body>
+    <h3>Player Info Adjustment</h3>
 
-<form action ='/players/<%= @player.id%>' method='POST'>
-<input id="hidden" type="hidden" name="_method" value="patch">
-<label for = 'name'>Name:</label>
-<input type = 'text' name = 'name' id = 'name'><br><br>
+    <form action ='/players/<%= @player.id%>' method='POST'>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <label for = 'name'>Name:</label>
+    <input type = 'text' name = 'name' id = 'name'><br><br>
 
-<label for = 'position'>Position:</label>
-<input type = 'text' name = 'position' id = 'position'><br><br>
+    <label for = 'position'>Position:</label>
+    <input type = 'text' name = 'position' id = 'position'><br><br>
 
-<label for = 'height'>Height:</label>
-<input type = 'text' name = 'height' id = 'height'><br><br>
+    <label for = 'height'>Height:</label>
+    <input type = 'text' name = 'height' id = 'height'><br><br>
 
-<label for = 'weight'>Weight:</label>
-<input type = 'text' name = 'weight' id = 'weight'><br><br>
+    <label for = 'weight'>Weight:</label>
+    <input type = 'text' name = 'weight' id = 'weight'><br><br>
 
-<input type = 'submit' value = 'Make Changes'>
-</form>
+    <input type = 'submit' value = 'Make Changes'>
+    </form>
+
+
+    </body>
+</html>
 
 
 
