@@ -10,7 +10,7 @@
 <p class = 'info'><%= @player.height %></p>
 <p class = 'info'><%= @player.weight %><br></p>
 
-<% if @player && @player.team == current_user %>
+<% if @player && @player.user == current_user %>
 <a href = "/players/<%= @player.id %>/edit">Edit player info</a><br>
 <form method="post" action="/players/<%= @player.id %>">
   <input type="hidden" name="_method" value="delete" />

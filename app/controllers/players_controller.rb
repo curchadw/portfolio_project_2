@@ -34,7 +34,7 @@ class PlayersController < ApplicationController
     get '/players/:id/edit' do  #load edit form
         if logged_in?
          @player = Player.find_by_id(params[:id])
-            if @player && @player.team == current_user
+            if @player && @player.user == current_user
                 erb :"players/modify"
             else
                 redirect to '/players'
@@ -46,13 +46,13 @@ class PlayersController < ApplicationController
 
     
 
-    patch '/players/:name' do
+    patch '/players/:id' do
         if logged_in?
             if params == ""
                 redirect to "/players/#{params[:id]}/edit"
             else
               @player = Player.find_by_id(params[:id])
-                if  @player && @player.team == current_user
+                if  @player && @player.user == current_user
                     @player.name = params[:name]
                     @player.position = params[:position]
                     @player.height = params[:height]
@@ -78,7 +78,7 @@ class PlayersController < ApplicationController
         else
             @player = current_user.players.build(params)
             if @player.save
-                @player.team_id = current_user.id
+                @player.user_id = current_user.id
                 redirect to "/players/#{@player.id}"
             else  
             redirect to '/players/new'
@@ -90,10 +90,10 @@ class PlayersController < ApplicationController
         
      end
 
-    delete '/players/:name' do 
+    delete '/players/:id' do 
       if logged_in?
         @player = Player.find_by_id(params[:id])
-        if @player && @player.team == current_user
+        if @player && @player.user == current_user
         @player.delete
         end
             redirect to '/players'
@@ -104,7 +104,7 @@ class PlayersController < ApplicationController
 
     get '/user_players/:username' do
         if logged_in?
-         @user_players = Player.all.select{|players| players.team_id == current_user.id}
+         @user_players = Player.all.select{|players| players.user_id == current_user.id}
             erb :'players/user_players'
         else
           redirect '/login'

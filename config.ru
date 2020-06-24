@@ -5,5 +5,6 @@ require './config/environment'
 use Rack::MethodOverride
 use CoachesController
 use PlayersController
-use TeamsController
+use UsersController
+use SessionsController
 run ApplicationController

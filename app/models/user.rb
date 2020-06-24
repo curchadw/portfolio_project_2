@@ -1,4 +1,4 @@
-class Team <ActiveRecord::Base
+class User <ActiveRecord::Base
 has_many :players
 has_many :coaches
 has_secure_password
