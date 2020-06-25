@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Add Player</title>
-        <link rel="stylesheet" type="text/css" href="<%= url('/logon.css') %>">
-    <head>
-    <body>
-    <h2>Add a member to the team</h2>
-    <form action ='/players' method='POST'>
+
+    <h3>Player Info Adjustment</h3>
+
+    <form action ='/players/<%= @player.id%>' method='POST'>
+    <input id="hidden" type="hidden" name="_method" value="patch">
     <label for = 'name'>Name:</label>
     <input type = 'text' name = 'name' id = 'name'><br><br>
 
@@ -19,8 +15,7 @@
     <label for = 'weight'>Weight:</label>
     <input type = 'text' name = 'weight' id = 'weight'><br><br>
 
-    <input type = 'submit' value = 'Join The Team'>
-    </form><br>
-    <a href = '/account'>Cancel</a>
-    </body>
-</html>
+    <input type = 'submit' value = 'Make Changes'>
+    </form>
+
+

@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
     get '/players' do
      if logged_in?
         @players = Player.all 
-        erb :'players/players'
+        erb :'players/show_all'
     
      else
         redirect to 'login'
@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
 
     get '/players/new' do 
         if logged_in?
-            erb :'players/add_player'
+            erb :'players/new'
         else
          redirect '/login'
         end
@@ -25,7 +25,7 @@ class PlayersController < ApplicationController
     get "/players/:id" do
       if logged_in?
         @player = Player.find(params[:id])
-        erb :"players/show_player"
+        erb :"players/show"
      else
        redirect to '/login' 
      end
@@ -35,7 +35,7 @@ class PlayersController < ApplicationController
         if logged_in?
          @player = Player.find_by_id(params[:id])
             if @player && @player.user == current_user
-                erb :"players/modify"
+                erb :"players/edit"
             else
                 redirect to '/players'
             end
@@ -105,7 +105,7 @@ class PlayersController < ApplicationController
     get '/user_players/:username' do
         if logged_in?
          @user_players = Player.all.select{|players| players.user_id == current_user.id}
-            erb :'players/user_players'
+            erb :'players/show_user_players'
         else
           redirect '/login'
         end

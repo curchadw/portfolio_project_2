@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title><%= current_user.name%></title>
-<link rel="stylesheet" type="text/css" href="<%= url('/logon.css') %>">
-</head>
-<body>
+
 <h2>House of the <%= current_user.name%>!</h2>
 
 <ul>
@@ -13,6 +7,5 @@
 <% end %>
 </ul>
 
+<a href = '/players/new'>Add a Player</a><br>
 <a href = '/account'>Home</a>
-</body>
-</html>
