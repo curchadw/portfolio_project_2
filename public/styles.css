@@ -1,12 +1,28 @@
-
 body {
     background-color: aqua;
     margin: 0;
     padding: 1.5em;
-    text-align: center;
+    color: darkblue;
+    
+    
 }
 
-#top_header {
-    color: red;
+ul{
+    list-style-type: none;
 }
+
+
+label{
+    margin-right: 20px;
+}
+
+.info{
+    font-size: 1.5em;
+    font-weight: 700;
+    
+}
+
+
+
+
 
