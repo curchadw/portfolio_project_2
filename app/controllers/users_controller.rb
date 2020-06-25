@@ -11,7 +11,7 @@ class UsersController < ApplicationController
             
           @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password], :name => params[:name])
           session[:user_id] = @user.id
-          redirect to '/'
+          redirect to '/account'
         end
     end
 

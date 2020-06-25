@@ -73,7 +73,7 @@ class PlayersController < ApplicationController
 
     post "/players" do 
       if logged_in?
-        if params == ""
+        if params[:name] == "" || params[:position] == "" || params[:height] == "" || params[:weight] == ""
           redirect to '/players/new'
         else
             @player = current_user.players.build(params)

@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
           session[:user_id] = user.id
           redirect to "/account"
         else
-          redirect to '/login'
+          redirect to '/failure'
         end
       end
 
@@ -23,6 +23,10 @@ class SessionsController < ApplicationController
           session.destroy
           redirect to '/'
         end
+      end
+
+      get "/failure" do
+        erb :'user/failure'
       end
 
 end
