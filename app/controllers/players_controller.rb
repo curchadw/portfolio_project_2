@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
     get '/players' do
      if logged_in?
         @players = Player.all 
-        erb :'players/show_all'
+        erb :'players/index'
     
      else
         redirect to 'login'
@@ -53,11 +53,8 @@ class PlayersController < ApplicationController
             else
               @player = Player.find_by_id(params[:id])
                 if  @player && @player.user == current_user
-                    @player.name = params[:name]
-                    @player.position = params[:position]
-                    @player.height = params[:height]
-                    @player.weight = params[:weight]
-                    @player.save
+                    @player.update(:name => params[:name],:position => params[:position],:height => params[:height], :weight => params[:weight])
+                                  
                     redirect to "/players/#{@player.id}"
                 else
                     redirect to "/players/#{@player.id}/edit"
