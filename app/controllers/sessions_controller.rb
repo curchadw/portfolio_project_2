@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
           session[:user_id] = user.id
           redirect to "/account"
         else
-          redirect to '/failure'
+          flash[:notice] = "<h3 class ='alert'>Please provide correct credentials!</h3>"
+          redirect to '/login'
         end
       end
 

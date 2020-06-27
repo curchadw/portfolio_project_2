@@ -1,15 +1,22 @@
+require 'sinatra/flash'
+
+
 class ApplicationController < Sinatra::Base
+  
 
     configure do
         set :views, "app/views"
         set :public_dir, "public"
         enable :sessions
         set :session_secret, "team_secret"
+        register Sinatra::Flash
     end
   
     get "/" do
         erb :index
     end
+
+    
 
     helpers do
 

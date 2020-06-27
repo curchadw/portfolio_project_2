@@ -1,16 +1,18 @@
 
 
-<p class = 'info'>Player Name: <%= @player.name %></p>
-<p class = 'info'>Player Position: <%= @player.position %></p>
-<p class = 'info'>Player Height: <%= @player.height %></p>
-<p class = 'info'>Player Weight: <%= @player.weight %><br></p>
+<p class = 'info'>Name: <%= @player.name %></p>
+<p class = 'info'>Position: <%= @player.position %></p>
+<p class = 'info'>Height: <%= @player.height %></p>
+<p class = 'info'>Weight: <%= @player.weight %><br></p>
 
 <% if @player && @player.user == current_user %>
-<a href = "/players/<%= @player.id %>/edit">Edit player info</a><br>
+
 <form method="post" action="/players/<%= @player.id %>">
   <input type="hidden" name="_method" value="delete" />
   <input type="submit" value = 'Delete' />
+  
 </form>
+<a href = "/players/<%= @player.id %>/edit">Edit player info</a><br>
 <% end %>
 <a href ='/user_players/<%= current_user.username %>'>Show Your Players</a><br>
 <a href ='/players'>Show All Players In System</a>

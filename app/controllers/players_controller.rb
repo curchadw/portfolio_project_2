@@ -71,12 +71,15 @@ class PlayersController < ApplicationController
     post "/players" do 
       if logged_in?
         if params[:name] == "" || params[:position] == "" || params[:height] == "" || params[:weight] == ""
-          redirect to '/players/new'
+            flash[:notice] = "<h3 class ='alert'>Please fill-in new player info!</h3>"
+            redirect to '/players/new'
         else
             @player = current_user.players.build(params)
             if @player.save
                 @player.user_id = current_user.id
+                flash[:notice] = "<h3 class ='success'>Successfully created a new player!</h3>"
                 redirect to "/players/#{@player.id}"
+                
             else  
             redirect to '/players/new'
             end
