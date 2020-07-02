@@ -2,8 +2,8 @@
 <h2>Current Players In The System</h2>
 <h3>Players in the system for all teams</h3>
 <ul>
-<% @players.each.with_index do |player,id|%>
-<li><a href= '/players/<%= player.id %>'><%= player.name%></a></li>
+<% @players.each.with_index do |player|%>
+<li><a href= '/players/<%= player.slug %>'><%= player.name%></a></li>
 <% end %>
 </ul>
 <a href = '/account'><h5>Home</h5></a>

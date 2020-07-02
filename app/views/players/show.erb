@@ -12,7 +12,7 @@
   <input type="submit" value = 'Delete' />
   
 </form>
-<a href = "/players/<%= @player.id %>/edit">Edit player info</a><br>
+<a href = "/players/<%= @player.slug %>/edit">Edit player info</a><br>
 <% end %>
 <a href ='/user_players/<%= current_user.username %>'>Show Your Players</a><br>
 <a href ='/players'>Show All Players In System</a>

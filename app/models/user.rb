@@ -1,7 +1,10 @@
 class User <ActiveRecord::Base
-has_many :players
+    include Slugifiable::InstanceMethods
+    extend Slugifiable::ClassMethods
 
-has_secure_password
+    has_many :players
+
+    has_secure_password
 
   
 

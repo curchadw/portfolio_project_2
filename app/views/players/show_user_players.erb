@@ -3,7 +3,7 @@
 
 <ul>
 <% @user_players.each do |player|%>
-    <li><a href= '/players/<%= player.id %>'><%= player.name %></a></li>
+    <li><a href= '/players/<%= player.slug %>'><%= player.name %></a></li>
 <% end %>
 </ul>
 

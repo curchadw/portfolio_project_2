@@ -1,7 +1,7 @@
 
     <h3>Player Info Adjustment</h3>
 
-    <form action ='/players/<%= @player.id%>' method='POST'>
+    <form action ='/players/<%= @player.slug%>' method='POST'>
     <input id="hidden" type="hidden" name="_method" value="patch">
     <label for = 'name'>Name:</label><br>
     <input type = 'text' name = 'name' id = 'name' value = '<%= @player.name %>'><br><br>
