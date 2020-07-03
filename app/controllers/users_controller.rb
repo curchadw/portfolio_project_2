@@ -11,15 +11,15 @@ class UsersController < ApplicationController
         
         
         else
-            if @user
-              flash[:notice] = "<h3>Username already exist, try anoter one.</h3>"
-              redirect to '/signup'
-            else
+            # if @user
+            #   flash[:notice] = "<h3>Username already exist, try anoter one.</h3>"
+            #   redirect to '/signup'
+            # else
               @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password], :name => params[:name])
               session[:user_id] = @user.id
               redirect to '/account'
             
-            end
+            #end
         end
     end
 
