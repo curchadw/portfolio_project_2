@@ -54,7 +54,7 @@ class PlayersController < ApplicationController
 
     patch '/players/:slug' do
         if logged_in?
-            if params == ""
+            if params[:name] == "" || params[:position] == "" || params[:height] == "" || params[:weight] == ""
                 redirect to "/players/#{params[:slug]}/edit"
             else
               @player = Player.find_by_slug(params[:slug])
