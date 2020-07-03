@@ -81,12 +81,13 @@ class PlayersController < ApplicationController
             redirect to '/players/new'
         else
             @player = current_user.players.build(params)
-            if @player.save
+            if  @player.save 
                 @player.user_id = current_user.id
                 flash[:notice] = "<h3 class ='success'>Successfully created a new player!</h3>"
                 redirect to "/players/#{@player.slug}"
-                
-            else  
+                 
+            else 
+            
             redirect to '/players/new'
             end
           end
