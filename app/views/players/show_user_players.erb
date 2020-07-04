@@ -2,7 +2,7 @@
 <h2>House of the <%= current_user.name%>!</h2>
 
 <ul>
-<% @user_players.each do |player|%>
+<% @players.each do |player|%>
     <li><a href= '/players/<%= player.slug %>'><%= player.name %></a></li>
 <% end %>
 </ul>

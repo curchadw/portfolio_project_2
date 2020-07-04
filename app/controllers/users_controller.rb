@@ -11,26 +11,36 @@ class UsersController < ApplicationController
         
         
         else
-            # if @user
-            #   flash[:notice] = "<h3>Username already exist, try anoter one.</h3>"
-            #   redirect to '/signup'
-            # else
-              @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password], :name => params[:name])
-              session[:user_id] = @user.id
-              redirect to '/account'
             
-            #end
+              # binding.pry
+              user = User.new(:username => params[:username], :email => params[:email], :password => params[:password], :name => params[:name])
+              if user.save
+              session[:user_id] = user.id
+              redirect to '/account'
+              else
+                flash[:notice] = "<h3>Username already exist, try anoter one.</h3>"
+                redirect to '/signup'
+              end
+            
         end
     end
 
 
     
 
-      get '/account' do
-        erb :'players/account'
-      end
+      # get '/account' do
+      # if logged_in?
+      #   erb :'players/account'
+      # else
+      #   redirect to '/login'
+      # end
+      # end
     
+      get '/account' do
+        redirect_if_not_logged_in
+        erb :'players/account'
       
+      end
 
       
 

@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
           flash[:notice] = "<h3 class ='alert'>Please provide correct credentials!</h3>"
           redirect to '/login'
         end
-      end
+        end
 
       get '/logout' do
         if logged_in?
