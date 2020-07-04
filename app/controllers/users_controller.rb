@@ -12,15 +12,15 @@ class UsersController < ApplicationController
         
         else
             
-              # binding.pry
-              user = User.new(:username => params[:username], :email => params[:email], :password => params[:password], :name => params[:name])
-              if user.save
-              session[:user_id] = user.id
-              redirect to '/account'
-              else
-                flash[:notice] = "<h3>Username already exist, try another one.</h3>"
-                redirect to '/signup'
-              end
+              
+           user = User.new(:username => params[:username], :email => params[:email], :password => params[:password], :name => params[:name])
+           if user.save
+            session[:user_id] = user.id
+            redirect to '/account'
+           else
+            flash[:notice] = "<h3>Username already exist, try another one.</h3>"
+            redirect to '/signup'
+           end
             
         end
     end
@@ -28,13 +28,7 @@ class UsersController < ApplicationController
 
     
 
-      # get '/account' do
-      # if logged_in?
-      #   erb :'players/account'
-      # else
-      #   redirect to '/login'
-      # end
-      # end
+      
     
       get '/account' do
         redirect_if_not_logged_in

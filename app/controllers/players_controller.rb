@@ -29,32 +29,32 @@ class PlayersController < ApplicationController
 
 
     get '/players/:slug/edit' do  #load edit form
-         redirect_if_not_logged_in
-         @player = Player.find_by_slug(params[:slug])
-            if @player && @player.user == current_user
-                erb :"players/edit"
-            else
-                redirect to '/players'
-            end
+        redirect_if_not_logged_in
+        @player = Player.find_by_slug(params[:slug])
+        if @player && @player.user == current_user
+          erb :"players/edit"
+        else
+          redirect to '/players'
+        end
         
     end
 
     
 
     patch '/players/:slug' do
-            redirect_if_not_logged_in
-            if params[:name] == "" || params[:position] == "" || params[:height] == "" || params[:weight] == ""
-                redirect to "/players/#{params[:slug]}/edit"
-            else
-              player = Player.find_by_slug(params[:slug])
-                if  player && player.user == current_user
-                    player.update(:name => params[:name],:position => params[:position],:height => params[:height], :weight => params[:weight])
+        redirect_if_not_logged_in
+        if params[:name] == "" || params[:position] == "" || params[:height] == "" || params[:weight] == ""
+           redirect to "/players/#{params[:slug]}/edit"
+        else
+           player = Player.find_by_slug(params[:slug])
+           if  player && player.user == current_user
+                player.update(:name => params[:name],:position => params[:position],:height => params[:height], :weight => params[:weight])
                                   
-                    redirect to "/players/#{@player.slug}"
-                else
-                    redirect to "/players/#{@player.slug}/edit"
-                end
-            end
+                redirect to "/players/#{@player.slug}"
+           else
+                redirect to "/players/#{@player.slug}/edit"
+           end
+        end
     end
 
     post "/players" do 
@@ -65,13 +65,13 @@ class PlayersController < ApplicationController
         else
             player = current_user.players.build(params)
             if  player.save 
-                player.user_id = current_user.id
-                flash[:notice] = "<h3 class ='success'>Successfully created a new player!</h3>"
-                redirect to "/players/#{@player.slug}"
+              player.user_id = current_user.id
+              flash[:notice] = "<h3 class ='success'>Successfully created a new player!</h3>"
+              redirect to "/players/#{@player.slug}"
                  
             else 
             
-            redirect to '/players/new'
+               redirect to '/players/new'
             end
         end
 
