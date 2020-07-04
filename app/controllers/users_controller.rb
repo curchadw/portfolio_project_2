@@ -18,7 +18,7 @@ class UsersController < ApplicationController
               session[:user_id] = user.id
               redirect to '/account'
               else
-                flash[:notice] = "<h3>Username already exist, try anoter one.</h3>"
+                flash[:notice] = "<h3>Username already exist, try another one.</h3>"
                 redirect to '/signup'
               end
             

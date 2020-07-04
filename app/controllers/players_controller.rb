@@ -82,15 +82,15 @@ class PlayersController < ApplicationController
         redirect_if_not_logged_in
         player = Player.find_by_id(params[:id])
         if player && player.user == current_user
-        player.delete
+            player.delete
         end
-        redirect to '/players'
+            redirect to '/players'
     
     end
 
     get '/user_players/:username' do
         redirect_if_not_logged_in
-            @players = current_user.players
-            erb :'players/show_user_players'
+        @players = current_user.players
+        erb :'players/show_user_players'
     end
 end
