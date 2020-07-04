@@ -17,7 +17,7 @@ class PlayersController < ApplicationController
   
    
 
-    get "/players/:slug" do
+    get '/players/:slug' do
         redirect_if_not_logged_in
         @player = Player.find_by_slug(params["slug"])
         erb :"players/show"
@@ -44,9 +44,9 @@ class PlayersController < ApplicationController
     patch '/players/:slug' do
         redirect_if_not_logged_in
         if params[:name] == "" || params[:position] == "" || params[:height] == "" || params[:weight] == ""
-           redirect to "/players/#{params[:slug]}/edit"
+          redirect to "/players/#{params[:slug]}/edit"
         else
-           player = Player.find_by_slug(params[:slug])
+          player = Player.find_by_slug(params[:slug])
            if  player && player.user == current_user
                 player.update(:name => params[:name],:position => params[:position],:height => params[:height], :weight => params[:weight])
                                   
@@ -57,7 +57,7 @@ class PlayersController < ApplicationController
         end
     end
 
-    post "/players" do 
+    post '/players' do 
         redirect_if_not_logged_in
         if params[:name] == "" || params[:position] == "" || params[:height] == "" || params[:weight] == ""
             flash[:notice] = "<h3 class ='alert'>Please fill-in new player info!</h3>"
@@ -76,7 +76,7 @@ class PlayersController < ApplicationController
         end
 
         
-     end
+    end
 
     delete '/players/:id' do 
         redirect_if_not_logged_in
