@@ -79,7 +79,7 @@ class PlayersController < ApplicationController
     end
 
     delete '/players/:id' do 
-        redirect_if_not_logged_in
+        
         player = Player.find_by_id(params[:id])
         if player && player.user == current_user
             player.delete
