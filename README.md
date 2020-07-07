@@ -6,7 +6,7 @@ TMS is a CMS(Content Management System)web application that is designed for a sp
 
 
 ## Visuals
-- Will update
+ Will update
 
 ## Installation
 
