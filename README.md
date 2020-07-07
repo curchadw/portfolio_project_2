@@ -11,7 +11,7 @@ TMS is a CMS(Content Management System)web application that is designed for a sp
 ## Installation
 
 - You will fork from my repo and clone on to your system. 
-- Once you clone and open it on your system, you will do a "[bundle install]" to install the required dependicies for it to run properly
+- Once you clone and open it on your system, you will do a [bundle install] in your terminal terminal to install the required dependicies for it to run properly
 
 ## Usage
 You will be able to create a user account, and log in. The application will provide html based forms for you to fill out and save information. There are delete and edit functionalities as well if you are adjusting or deleting players on your roster
