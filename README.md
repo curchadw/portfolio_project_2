@@ -6,11 +6,11 @@ TMS is a CMS(Content Management System)web application that is designed for a sp
 
 
 ## Visuals
-[Screenshot 1](https://github.com/curchadw/porfolio_project_2/blob/master/TMS%20ss.PNG)
-[Screenshot 2](https://github.com/curchadw/porfolio_project_2/blob/master/TMS%20ss2.PNG)
-[Screenshot 3](https://github.com/curchadw/porfolio_project_2/blob/master/TMS%20ss3.PNG)
-[Screenshot 4](https://github.com/curchadw/porfolio_project_2/blob/master/TMS%20ss4.PNG)
-[Screenshot 5](https://github.com/curchadw/porfolio_project_2/blob/master/TMS%20ss5.PNG)
+[Screenshot 1](https://imgur.com/sUKVoye)
+[Screenshot 2](https://imgur.com/gesrKcS)
+[Screenshot 3](https://imgur.com/pQUkzTb)
+[Screenshot 4](https://imgur.com/6LdEXUM)
+[Screenshot 5](https://imgur.com/TmoivmT)
 
 ## Installation
 
