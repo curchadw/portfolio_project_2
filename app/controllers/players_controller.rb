@@ -50,9 +50,9 @@ class PlayersController < ApplicationController
            if  player && player.user == current_user
                 player.update(:name => params[:name],:position => params[:position],:height => params[:height], :weight => params[:weight])
                                   
-                redirect to "/players/#{@player.slug}"
+                redirect to "/players/#{player.slug}"
            else
-                redirect to "/players/#{@player.slug}/edit"
+                redirect to "/players/#{player.slug}/edit"
            end
         end
     end
@@ -67,7 +67,7 @@ class PlayersController < ApplicationController
             if  player.save 
               player.user_id = current_user.id
               flash[:notice] = "<h3 class ='success'>Successfully created a new player!</h3>"
-              redirect to "/players/#{@player.slug}"
+              redirect to "/players/#{player.slug}"
                  
             else 
             
