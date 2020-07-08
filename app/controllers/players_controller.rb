@@ -1,32 +1,23 @@
 class PlayersController < ApplicationController
    
-    
-    
     get '/players' do
         redirect_if_not_logged_in
         @players = Player.all 
         erb :'players/index'
     end
 
-    
     get '/players/new' do 
         redirect_if_not_logged_in
         erb :'players/new'
         
     end
   
-   
-
     get '/players/:slug' do
         redirect_if_not_logged_in
         @player = Player.find_by_slug(params["slug"])
         erb :"players/show"
     
     end
-
-   
-
-
 
     get '/players/:slug/edit' do  #load edit form
         redirect_if_not_logged_in
@@ -38,8 +29,6 @@ class PlayersController < ApplicationController
         end
         
     end
-
-    
 
     patch '/players/:slug' do
         redirect_if_not_logged_in
