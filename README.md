@@ -6,11 +6,11 @@ TMS is a CMS(Content Management System)web application that is designed for a sp
 
 
 ## Visuals
-[Screenshot 1](https://imgur.com/sUKVoye)
-[Screenshot 2](https://imgur.com/gesrKcS)
-[Screenshot 3](https://imgur.com/pQUkzTb)
-[Screenshot 4](https://imgur.com/6LdEXUM)
-[Screenshot 5](https://imgur.com/TmoivmT)
+[Screenshot 1](https://imgur.com/sUKVoye)<br><br>
+[Screenshot 2](https://imgur.com/gesrKcS)<br><br>
+[Screenshot 3](https://imgur.com/pQUkzTb)<br><br>
+[Screenshot 4](https://imgur.com/6LdEXUM)<br><br>
+[Screenshot 5](https://imgur.com/TmoivmT)<br><br>
 
 ## Installation
 
